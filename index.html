@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <div class="main-container">
+        <form >
+        <div>
+            <label class="text">Age</label>
+            <input type="number" class="age-bar" id="age-bar"> <p id="p">ages: 2-120</p>
+        </div>
+           <div class="gender">
+            <label class="text">Gender</label>
+             <input type="radio" class="gender-bar" value="male" checked>Male
+            <input type="radio" class="gender-bar" value="female">Female
+        </div>
+        <div >
+            <label class="text">Height</label>
+            <input type="text" class="hw" id="height">
+            <label class="text">Weight</label>
+            <input type="text" class="hw" id="weight">
+        </div>
+        <button class="button" type="button" id="btn" onclick="bmiCalculate()">Calculate</button>
+        <button class="button" onclick="clear()">Clear</button>
+        </form>
+        <div>
+            <p id="result"></output>
+        </div>
+    </div>
+
+    <script type="text/Javascript">
+      function bmiCalculate(){
+        
+        var h= document.getElementById("height").value;
+        
+        var w= document.getElementById("weight").value;
+        var age= document.getElementById("age-bar").value;
+
+        if(age<2 || age>120){
+            alert('Please enter a valid age');
+        }
+        else{
+
+        var bmi= parseFloat(w/ (h*h));
+        var total= bmi.toFixed(bmi);
+        document.getElementById("result").innerHTML="Your BMI is"+ total;
+        }
+        
+      }
+      function clear() {
+        document.getElementById("age-bar").innerHTML="";
+        document.getElementById("height").innerHTML="";
+        document.getElementById("weight").innerHTML=""
+      }
+    </script>
+</body>
+</html>
